@@ -1,25 +1,17 @@
-# Image Dental Care & Implant Centre — Restored Slider Edition
+# Image Dental Care & Implant Centre — Revised Website
 
-This is an edited version of the **original green website**, keeping the full-width photographic hero slider and three-column information bar. The overall layout is preserved.
+Open `index.html` with VS Code Live Server. All assets are in `assets/images`.
 
 ## Files
-- `index.html` — page sections and content
-- `styles.css` — full design and responsive rules; logo color overrides are at the **bottom**
-- `script.js` — slider, mobile navigation, accordions, contact enquiry
-- `assets/images/` — all locally bundled photography, real supplied doctor photo and transparent clinic logo
+- `index.html`: full-width homepage image slider, clinic sections and appointment form
+- `styles.css`: responsive styles and clinic color palette
+- `script.js`: homepage slider, treatments grid, navigation, FAQs and enquiry helpers
+- `service.js`: navigation and modal behaviour on individual service pages
+- Six individual treatment pages and a dental tourism page, named by service
 
-## Changes in this edition
-1. Restored the full-width rotating-photo homepage slider (no dentist portrait inside slider).
-2. Restored the full-width contact information bar.
-3. Changed the accent palette to white, turquoise green and warm yellow, inspired by the supplied logo.
-4. Added the transparent clinic logo to the navbar and footer.
-5. Placed the supplied portrait in a dedicated dentist profile section lower on the page.
-6. Kept original clinic content, treatment sections and responsive behavior.
+## Important
+Appointment forms **copy** the enquiry; they do not submit it to the clinic. Connect a verified phone, WhatsApp and secure form backend before launching. Update clinic opening hours and contact details only with confirmed information.
 
-## Preview
-Open this folder in VS Code, then use the **Live Server** extension on `index.html` (or open `index.html` directly).
 
-## Before publishing
-- Verify phone, WhatsApp, hours, full address, dentist qualifications and profile details.
-- The other dental photos are illustrative. Replace them with authentic licensed or clinic-provided photographs once available.
-- The appointment forms currently copy requests; they do not submit bookings to a server.
+## Navigation repair
+Corrected an extra closing `</div>` on every HTML page that caused the header links and appointment button to escape the navigation row. At narrower widths, the navigation collapses to a mobile menu to avoid wrapping.

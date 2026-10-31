@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
  <head>
   <meta charset="utf-8"/>
@@ -16,7 +16,9 @@
  <body>
   <header class="header" id="top">
    <div class="shell navbar">
-    <a class="brand brand-logo" href="#home" aria-label="Image Dental Care & Implant Centre home"><img src="assets/images/logo-transparent.png" alt="Image Dental Care & Implant Centre" /></a>
+    <a aria-label="Image Dental Care &amp; Implant Centre home" class="brand brand-logo" href="#home">
+     <img alt="Image Dental Care &amp; Implant Centre" src="assets/images/logo-transparent.png"/>
+    </a>
     <nav aria-label="Main navigation" class="navlinks" id="navlinks">
      <a href="#home">
       Home
@@ -24,13 +26,27 @@
      <a href="#about">
       About
      </a>
-     <a href="#treatments">
-      Treatments
-     </a>
-     <a href="#aligners">
+     <div class="nav-dropdown">
+      <button class="dropdown-trigger" type="button" aria-expanded="false" aria-controls="treatments-menu" aria-haspopup="true">
+       <span>Treatments</span>
+       <svg class="dropdown-chevron" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="dropdown-menu" id="treatments-menu">
+       <p class="dropdown-heading">Explore our treatments</p>
+       <div class="dropdown-items">
+        <a href="root-canal-treatment.html">Root Canal Treatment <span aria-hidden="true">↗</span></a>
+        <a href="cosmetic-dentistry.html">Cosmetic Dentistry &amp; Smile Design <span aria-hidden="true">↗</span></a>
+        <a href="braces-clear-aligners.html">Braces &amp; Clear Aligners <span aria-hidden="true">↗</span></a>
+        <a href="wisdom-tooth-surgery.html">Wisdom Tooth Surgery <span aria-hidden="true">↗</span></a>
+        <a href="dental-implants.html">Dental Implants <span aria-hidden="true">↗</span></a>
+        <a href="general-dentistry.html">General &amp; Preventive Care <span aria-hidden="true">↗</span></a>
+       </div>
+      </div>
+     </div>
+     <a href="braces-clear-aligners.html">
       Braces &amp; Aligners
      </a>
-     <a href="#tourism">
+     <a href="dental-tourism.html">
       Dental Tourism
      </a>
      <a href="#contact">
@@ -112,12 +128,7 @@
        &phone;
       </span>
       <span>
-       <strong>
-        Need Dental Services?
-       </strong>
-       <small>
-        Contact clinic for verified phone number
-       </small>
+       Book a dental consultation
       </span>
      </div>
      <div>
@@ -125,12 +136,7 @@
        ◷
       </span>
       <span>
-       <strong>
-        Opening Hours
-       </strong>
-       <small>
-        Clinic timings to be confirmed
-       </small>
+       Appointments by enquiry
       </span>
      </div>
      <div>
@@ -151,7 +157,7 @@
    <section class="section" id="about">
     <div class="shell split">
      <div class="photo-stack reveal">
-      <img alt="Illustrative dental examination" class="bigphoto" loading="lazy" src="assets/images/dental-examination.webp"/>
+      <img alt="dental examination" class="bigphoto" loading="lazy" src="assets/images/dental-examination.webp"/>
       <img alt="Bright dental treatment room" class="smallphoto" loading="lazy" src="assets/images/modern-clinic.webp"/>
       <div class="since">
        <b>
@@ -450,25 +456,37 @@
       </div>
      </div>
      <div class="reveal">
-      <img alt="Illustrative photo of a contemporary dental treatment room" class="round-photo" loading="lazy" src="assets/images/modern-clinic.webp"/>
+      <img alt="photo of a contemporary dental treatment room" class="round-photo" loading="lazy" src="assets/images/modern-clinic.webp"/>
      </div>
     </div>
    </section>
    <section class="section doctor-section" id="team">
-  <div class="shell doctor-layout">
-    <div class="doctor-image reveal">
-      <img src="assets/images/dr-pooja-shah.png" alt="Portrait supplied for Dr. Pooja Mody Shah" loading="lazy" />
+    <div class="shell doctor-layout">
+     <div class="doctor-image reveal">
+      <img alt="Dr. Pooja Mody Shah" loading="lazy" src="assets/images/dr-pooja-shah.png"/>
+     </div>
+     <div class="doctor-details reveal">
+      <span class="kicker">
+       MEET OUR DENTIST
+      </span>
+      <h2>
+       Personal care begins with
+       <em>
+        understanding your smile.
+       </em>
+      </h2>
+      <h3>
+       Dr. Pooja Mody Shah
+      </h3>
+      <p>
+       At Image Dental Care &amp; Implant Centre, consultations focus on listening to your concerns, explaining relevant dental options and helping you make informed treatment decisions.
+      </p>
+      <button class="button dark" data-book="">
+       Request an Appointment &nearrow;
+      </button>
+     </div>
     </div>
-    <div class="doctor-details reveal">
-      <span class="kicker">MEET OUR DENTIST</span>
-      <h2>Personal care begins with <em>understanding your smile.</em></h2>
-      <h3>Dr. Pooja Mody Shah</h3>
-      <p>At Image Dental Care &amp; Implant Centre, consultations focus on listening to your concerns, explaining relevant dental options and helping you make informed treatment decisions.</p>
-      <p class="doctor-verification">Qualifications, professional registration and biography will be added after confirmation by the clinic.</p>
-      <button class="button dark" data-book>Request an Appointment &nearr;</button>
-    </div>
-  </div>
-</section>
+   </section>
    <section class="section tourism light" id="tourism">
     <div class="shell">
      <div class="split">
@@ -566,9 +584,6 @@
        <span>
         Piplod, Surat, Gujarat, India
        </span>
-       <span>
-        Phone, WhatsApp, timings and complete address: awaiting verification
-       </span>
       </div>
       <button class="button primary" data-book="">
        Request an Appointment &nearrow;
@@ -579,7 +594,7 @@
        Appointment enquiry
       </h3>
       <p>
-       This prototype prepares a message on your device. It does not transmit or store health information.
+       Fill in your details and copy the enquiry to share with our clinic.
       </p>
       <form id="contactForm">
        <label>
@@ -633,7 +648,9 @@
   <footer>
    <div class="shell footgrid">
     <div>
-     <a class="brand brand-logo" href="#home" aria-label="Image Dental Care & Implant Centre home"><img src="assets/images/logo-transparent.png" alt="Image Dental Care & Implant Centre" /></a>
+     <a aria-label="Image Dental Care &amp; Implant Centre home" class="brand brand-logo" href="#home">
+      <img alt="Image Dental Care &amp; Implant Centre" src="assets/images/logo-transparent.png"/>
+     </a>
      <p>
       Thoughtful Dental Care. Confident Smiles.
       <br/>
@@ -703,7 +720,7 @@
      Start with a consultation.
     </h2>
     <p>
-     Complete the enquiry form below. No information is submitted to the clinic from this prototype.
+     Enter your details to prepare an appointment enquiry to share with our clinic.
     </p>
     <form id="modalForm">
      <label>
@@ -756,4 +773,3 @@
   </script>
  </body>
 </html>
-
