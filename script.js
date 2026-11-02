@@ -15,7 +15,48 @@ const slides=[...document.querySelectorAll('.slide')], slideTitles=['Thoughtful 
 const menu=document.getElementById('menu'),nav=document.getElementById('navlinks');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}}),{threshold:.09});document.querySelectorAll('.reveal').forEach(e=>observer.observe(e));document.getElementById('year').textContent=new Date().getFullYear();const today=new Date();const iso=`${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;document.querySelectorAll('input[type=date]').forEach(e=>e.min=iso);
 const modal=document.getElementById('bookingModal');let previousFocus=null;function openModal(service){previousFocus=document.activeElement;modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';if(service)document.getElementById('modalService').value=service;modal.querySelector('[data-close]').focus()}function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';previousFocus?.focus()}document.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',()=>openModal(b.dataset.service)));document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeModal));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();if(e.key==='Tab'&&modal.classList.contains('open')){let focusable=[...modal.querySelectorAll('button,input,select')];if(e.shiftKey&&document.activeElement===focusable[0]){e.preventDefault();focusable.at(-1).focus()}else if(!e.shiftKey&&document.activeElement===focusable.at(-1)){e.preventDefault();focusable[0].focus()}}});
-function inquiry(form){const data=new FormData(form);return `Appointment enquiry — Image Dental Care & Implant Centre\nName: ${data.get('name')}\nContact: ${data.get('phone')}\nService: ${data.get('service')}\nPreferred date: ${data.get('date')}\nPlease contact me to discuss availability.`}document.querySelectorAll('#contactForm,#modalForm').forEach(form=>form.addEventListener('submit',async e=>{e.preventDefault();const result=inquiry(form),status=form.querySelector('.form-status');try{await navigator.clipboard.writeText(result);status.textContent='Enquiry copied. Please paste and send it to the clinic.'}catch{status.textContent='Copy the enquiry below and share it with the clinic. '+result.replaceAll('\n',' | ')} }));document.querySelectorAll('[data-whatsapp]').forEach(b=>b.addEventListener('click',()=>{openModal('Braces & Clear Aligners');const status=document.querySelector('#modalForm .form-status');status.textContent='Complete the enquiry and copy it to share with the clinic.'}));
+// Appointment enquiries: open WhatsApp with complete prefilled details.
+// WhatsApp requires the visitor to tap Send; opening a link is not submission.
+const CLINIC_WHATSAPP = '919662165644';
+function openWhatsAppEnquiry(form) {
+  if (!form.reportValidity()) return;
+  const values = new FormData(form);
+  const message = [
+    'Hello Image Dental Care & Implant Centre,',
+    'I would like to enquire about an appointment.',
+    'Name: ' + String(values.get('name') || '').trim(),
+    'Contact number: ' + String(values.get('phone') || '').trim(),
+    'Treatment: ' + String(values.get('service') || 'General consultation'),
+    'Preferred date: ' + String(values.get('date') || 'Please advise'),
+    'Please confirm availability. Thank you.'
+  ].join('\n');
+  const link = 'https://wa.me/' + CLINIC_WHATSAPP + '?text=' + encodeURIComponent(message);
+  const status = form.querySelector('.form-status');
+  // Navigation is triggered directly from the user's submit click.
+  const newTab = window.open(link, '_blank', 'noopener,noreferrer');
+  if (status) {
+    status.classList.add('whatsapp-ready');
+    status.textContent = newTab === null
+      ? 'Tap the link below to continue in WhatsApp. After sending, our team will update you about your enquiry soon.'
+      : 'WhatsApp is ready with your booking details. Tap Send there. Our team will update you about your enquiry soon.';
+    let anchor = form.querySelector('.whatsapp-retry');
+    if (!anchor) {
+      anchor = document.createElement('a'); anchor.className = 'whatsapp-retry';
+      anchor.target = '_blank'; anchor.rel = 'noopener noreferrer';
+      anchor.textContent = 'Open WhatsApp to send enquiry ↗';
+      anchor.style.cssText = 'display:inline-block;color:#157c62;text-decoration:underline;font-weight:700;margin-top:6px';
+      status.insertAdjacentElement('afterend', anchor);
+    }
+    anchor.href = link;
+  }
+}
+document.querySelectorAll('#contactForm,#modalForm').forEach(form => {
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    openWhatsAppEnquiry(form);
+  });
+});
+document.querySelectorAll('[data-whatsapp]').forEach(b=>b.addEventListener('click',()=>{openModal('Braces & Clear Aligners');const status=document.querySelector('#modalForm .form-status');status.textContent='Complete the enquiry and copy it to share with the clinic.'}));
 
 
 

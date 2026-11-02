@@ -26,3 +26,20 @@ Corrected an extra closing `</div>` on every HTML page that caused the header li
 
 ## Clinical support photographs
 The former Moments with our team gallery was removed, and three supplied photos now appear in the first three clinical support profile cards in their prior gallery order. **Photo-to-name assignments are provisional and must be verified with the clinic before publishing**. The fourth card retains initials until a verified image is supplied.
+
+
+## November 2026 updates
+- About portrait vertical alignment; four-card clinic support grid on desktop.
+- Duplicate Braces & Aligners top-level navbar link removed.
+- Local process illustration images on every service page (illustrative, not clinic case photography).
+- Maps iframe and external Google Reviews link on homepage. Google's business review cards need an approved third-party widget or Google Business Profile / Places API keys for true live integration.
+- Public contact information populated from imagedentalcare.in; confirm hours before adding.
+- Enquiry modal uses WhatsApp deep link to +91 96621 65644. It does not collect or store submissions on a server.
+- New file `lead.js` controls enquiry popup.
+
+
+## WhatsApp appointment enquiries
+All booking forms now open WhatsApp with the visitor's name, contact number, service and requested date prefilled. The visitor must tap **Send** within WhatsApp. The destination is `+91 96621 65644` (`919662165644`) as configured in `script.js`, `service.js` and `lead.js`. Confirm this is the clinic's correct WhatsApp-enabled number before launch.
+
+## Founder portrait
+The About-page founder image uses `assets/images/dr-pooja-portrait-crop.png` with an updated proportional portrait frame. The original image remains in assets.
