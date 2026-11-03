@@ -261,8 +261,8 @@ h1 em,h2 em {
     letter-spacing:.15em
 }
 .infobar {
-    background:#18594e;
-    color:white
+    background:#8BCDBB;
+    color:#154d42
 }
 .info-grid {
     display:grid;
@@ -275,23 +275,26 @@ h1 em,h2 em {
     gap:22px;
     align-items:center;
     padding:28px 42px;
-    border-right:1px solid #ffffff35
+    border-right:1px solid #154d4226
 }
 .info-grid>div:last-child {
     border:0
 }
 .info-ico {
     font-size:35px;
-    color:#5d8de4
+    color:#d8b56a
 }
 .info-grid strong {
     display:block;
     font-size:18px;
     margin-bottom:9px
 }
+.info-grid strong,.info-grid a {
+    color:#154d42
+}
 .info-grid small {
     font-size:13px;
-    color:#bcc7e6;
+    color:#2b6056;
     line-height:1.6;
     display:block
 }
@@ -403,7 +406,7 @@ p {
     font-size:11px;
     letter-spacing:.13em;
     font-weight:800;
-    color:#6085ca
+    color:#438c78
 }
 .card-body h3 {
     font-size:25px;
@@ -416,7 +419,7 @@ p {
 .card-body a {
     font-size:13px;
     font-weight:800;
-    color:#315eb4
+    color:#287a68
 }
 .intro-align {
     margin-bottom:95px
@@ -468,7 +471,7 @@ p {
 }
 .fine {
     font-size:12px!important;
-    color:#697a92
+    color:#62796f
 }
 .comparison {
     padding:47px 8%;
@@ -492,11 +495,11 @@ p {
     gap:13px
 }
 .step {
-    border-top:3px solid #5e87d7;
+    border-top:3px solid #85c6ae;
     padding:20px 12px
 }
 .step b {
-    color:#5378c7;
+    color:#378d76;
     font-size:12px
 }
 .step h3 {
@@ -555,7 +558,7 @@ p {
     font-size:35px
 }
 .smile-cta p {
-    color:#e0e7fb
+    color:#e6f1e9
 }
 .smile-cta button {
     margin:5px
@@ -597,7 +600,7 @@ p {
     padding:25px
 }
 .tour-grid b {
-    color:#5381ce
+    color:#3e8a73
 }
 .tour-grid h3 {
     font-size:22px;
@@ -684,7 +687,7 @@ footer {
 }
 .footgrid p {
     font-size:13px;
-    color:#c6cfe8;
+    color:#cfdfd6;
     line-height:1.7;
     margin-top:25px
 }
@@ -700,7 +703,7 @@ footer {
     justify-content:space-between;
     gap:15px;
     font-size:12px;
-    color:#bcc6e5
+    color:#d4e3d9
 }
 .modal {
     position:fixed;
@@ -1023,10 +1026,10 @@ footer {
 .navlinks a { color:#293e3b; }
 .menu { color:#293e3b; }
 .primary {
-  background: linear-gradient(105deg, #7bc4b7, #e7c58b);
+  background: #8BCDBB;
   color: #243d38;
 }
-.primary:hover { background:linear-gradient(105deg,#60b7a8,#dfb472); }
+.primary:hover { background: #77BEAA; }
 .dark { background:#237b71; color:white; }
 .hero { background:#22786e; }
 .hero-overlay {
@@ -1108,7 +1111,7 @@ html,body { overflow-x:clip; }
 .slider-controls { flex-shrink:0; }
 .infobar { background:#217a6e !important; }
 .info-ico { color:#f1d08b; }
-.primary { background:linear-gradient(105deg,#80c9b7,#e8c783);color:#193f35; }
+.primary { background:#8BCDBB;color:#173D34; }
 .dark { background:#26796d; }
 .ghost-dark { color:#26796d;border-color:#91c8bc; }
 .kicker { color:#328778; }
@@ -1124,11 +1127,16 @@ footer a:hover { color:#e8c783; }
 .doctor-section { background:#f2faf7; }
 /* Service inner pages */
 .service-page { padding-top:112px; }
-.service-banner { background:linear-gradient(115deg,#125b52,#2c8a77);padding:88px 0 78px;color:white; }
+.service-banner { background:linear-gradient(115deg,#125b52,#2c8a77);padding:88px 0 78px;color:white;overflow:hidden; }
 .service-banner .kicker { color:#f1d38e; }
-.service-banner h1 { font-size:clamp(38px,5vw,65px);max-width:900px;line-height:1.12; }
+.service-banner-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.72fr);gap:48px;align-items:center;}
+.service-banner-content h1 { font-size:clamp(38px,5vw,65px);max-width:900px;line-height:1.12;margin:12px 0 18px; }
 .service-banner p { max-width:850px;color:#ebf6f1;font-size:18px; }
 .service-banner .button {margin-top:18px;}
+.service-banner-media{justify-self:end;width:min(100%,460px);}
+.service-banner-card{position:relative;overflow:hidden;border-radius:28px;min-height:420px;border:1px solid rgba(255,255,255,.22);box-shadow:0 26px 60px rgba(7,41,34,.24);background:rgba(255,255,255,.08);}
+.service-banner-card::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(10,63,52,.10),rgba(57,145,125,.28));pointer-events:none;}
+.service-banner-card img{width:100%;height:100%;min-height:420px;object-fit:cover;display:block;}
 .service-content { padding:70px 0 100px; }
 .service-layout {display:grid;grid-template-columns:minmax(0,1fr) minmax(245px,.34fr);gap:55px;align-items:start;}
 .service-article {min-width:0;}
@@ -1173,6 +1181,9 @@ footer a:hover { color:#e8c783; }
   .hero-bottom {align-items:flex-start;gap:12px;flex-wrap:wrap;}
   .slider-controls {margin-left:auto;}
   .service-banner {padding:64px 0 55px;}
+  .service-banner-grid{grid-template-columns:1fr;gap:28px;}
+  .service-banner-media{justify-self:start;max-width:100%;}
+  .service-banner-card, .service-banner-card img{min-height:300px;}
   .service-content {padding:52px 0 70px;}
 }
 @media(prefers-reduced-motion:reduce) { .slide {transition:none!important;} .reveal {transform:none!important;transition:none!important;opacity:1!important;} }
@@ -1265,18 +1276,18 @@ footer a:hover { color:#e8c783; }
 
 
 /* === ABOUT PAGE: responsive sections and team profiles === */
-.about-page {overflow:clip;color:#23493d;}
+.about-inner {overflow:clip;color:#23493d;}
 .about-intro {padding:90px 0 84px;background:linear-gradient(120deg,#f0f8f3 0%,#ffffff 58%,#f9f3e3 100%);}
 .about-intro-layout {display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:clamp(32px,6vw,100px);}
 .about-intro h1 {font-size:clamp(42px,5.5vw,76px);line-height:1.06;letter-spacing:-.035em;margin:14px 0 24px;color:#153d34;}
-.about-intro h1 em,.about-page h2 em {color:#48977c;font-style:normal;}
+.about-intro h1 em,.about-inner h2 em {color:#48977c;font-style:normal;}
 .about-intro p {font-size:clamp(16px,1.5vw,20px);max-width:590px;line-height:1.75;color:#536d64;}
 .about-intro .button {margin-top:20px;}
 .about-intro-photo {border-radius:28px;overflow:hidden;background:#e6f2eb;max-width:440px;justify-self:center;box-shadow:0 20px 70px #0b3a2619;}
 .about-intro-photo img {width:100%;height:480px;object-fit:cover;object-position:center 25%;}
 .about-story-layout {display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center;}
-.about-page h2 {font-size:clamp(35px,4vw,58px);line-height:1.1;letter-spacing:-.03em;color:#183e34;margin:15px 0 24px;}
-.about-page p {line-height:1.78;}
+.about-inner h2 {font-size:clamp(35px,4vw,58px);line-height:1.1;letter-spacing:-.03em;color:#183e34;margin:15px 0 24px;}
+.about-inner p {line-height:1.78;}
 .about-story-points {display:grid;gap:14px;}
 .about-story-points>div {display:grid;grid-template-columns:45px 1fr;gap:2px 12px;border-bottom:1px solid #dce9df;padding:15px 0;}
 .about-story-points span {grid-row:span 2;color:#439a79;font-size:21px;font-weight:800;}
@@ -1323,7 +1334,7 @@ footer a:hover { color:#e8c783; }
 @media(max-width:610px){.about-intro{padding:50px 0 65px;}.about-intro h1{font-size:clamp(38px,10vw,54px);}.about-intro-photo img{height:350px;}.about-value-grid,.team-profile-grid,.team-gallery,.milestone-grid{grid-template-columns:1fr;}.milestone-grid .milestone-patients{grid-column:auto;}.milestone-grid>div{border-right:0;border-bottom:1px solid #ffffff30;padding:10px 0 18px;}.founder-feature{padding:15px;margin-bottom:48px;}.founder-image img{height:350px;}.team-photo{height:310px;}.about-value-card{padding:26px;}}
 
 /* About page content must be visible even if scripts are blocked. */
-.about-page .reveal { opacity: 1; transform: none; }
+.about-inner .reveal { opacity: 1; transform: none; }
 
 /* NOV 2026: about image, staff row, service journeys, reviews/map and lead form */
 .about-intro-photo{width:min(100%,390px);aspect-ratio:3/4;align-self:center;display:flex;align-items:center;justify-content:center;}
@@ -1401,4 +1412,545 @@ footer a:hover { color:#e8c783; }
   .lead-overlay .lead-dialog {
     transition-duration: 0ms;
   }
+}
+
+/* =========================================================
+   INFORMATION BAR — SOLID MINT (MATCHES APPOINTMENT BUTTON)
+   Final override: retains a high-contrast, readable layout.
+   ========================================================= */
+.infobar {
+  background-color: #8BCDBB !important;
+  background-image: none !important;
+  color: #173D34 !important;
+}
+.infobar .info-grid > div {
+  border-color: rgba(23, 61, 52, 0.25) !important;
+}
+.infobar .info-ico {
+  color: #173D34 !important;
+}
+.infobar .info-grid strong,
+.infobar .info-grid small,
+.infobar .info-grid a,
+.infobar .info-grid small a {
+  color: #173D34 !important;
+}
+.infobar .info-grid a:hover,
+.infobar .info-grid a:focus-visible {
+  color: #075B4B !important;
+}
+
+
+/* Restored original forest-green homepage contact information band. */
+.infobar {
+  background: #18594E !important;
+  background-image: none !important;
+  color: #FFFFFF !important;
+}
+.infobar .info-grid > div { border-color: rgba(255,255,255,.23) !important; }
+.infobar .info-ico { color: #F1D08B !important; }
+.infobar .info-grid strong,
+.infobar .info-grid small,
+.infobar .info-grid a,
+.infobar .info-grid small a { color: #FFFFFF !important; }
+.infobar .info-grid a:hover { color: #F1D08B !important; }
+
+/* Dedicated Contact page */
+.contact-inner { background: #fff; }
+.contact-hero { padding: clamp(66px, 8vw, 112px) 0; background: linear-gradient(112deg,#ecf7f2 0%,#fff 58%,#fcf5e6 100%); }
+.contact-hero .shell {max-width:1180px;}
+.contact-hero h1 {font-family:Outfit,sans-serif;font-size:clamp(42px,6.2vw,76px);line-height:1.08;letter-spacing:-.035em;color:#164f43;max-width:800px;margin:22px 0;}
+.contact-hero h1 em {color:#419681;font-style:normal;}
+.contact-hero p {max-width:680px;line-height:1.7;font-size:clamp(16px,2vw,19px);color:#4f6f65;}
+.contact-intro-actions {display:flex;gap:14px;flex-wrap:wrap;margin-top:27px;}
+.contact-wrap {display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:32px;align-items:start;padding-top:80px;padding-bottom:85px;}
+.contact-directory {display:grid;gap:18px;}
+.contact-directory article {padding:24px 26px;border:1px solid #dce9e1;border-radius:19px;background:#fafdfb;overflow-wrap:anywhere;}
+.contact-directory .contact-label {display:block;color:#478d79;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;}
+.contact-directory strong {font-size:20px;color:#164f43;display:block;line-height:1.4;}
+.contact-directory a {color:#164f43;text-decoration:underline;text-underline-offset:4px;}
+.contact-directory p {font-size:15px;line-height:1.6;margin:6px 0 0;}
+.contact-page-form {background:#fff;border:1px solid #dce9e1;border-radius:24px;box-shadow:0 16px 40px #174b4012;padding:clamp(22px,3.5vw,38px);}
+.contact-page-form h2 {font-size:clamp(29px,3.5vw,42px);color:#184b41;margin:0 0 10px;}
+.contact-page-form > p {font-size:15px;color:#577168;margin:0 0 24px;}
+.contact-page-form form {display:grid;gap:18px;}
+.contact-page-form label {display:grid;gap:7px;color:#244c40;font-weight:700;}
+.contact-page-form input,.contact-page-form select,.contact-page-form textarea {min-width:0;width:100%;border-radius:11px;border:1px solid #ceded5;background:#fff;padding:13px 14px;font:inherit;color:#1b4338;}
+.contact-page-form input:focus,.contact-page-form select:focus,.contact-page-form textarea:focus {outline:2px solid #8BCDBB;outline-offset:1px;}
+.contact-page-form .consent {display:flex;gap:10px;align-items:flex-start;font-size:13px;font-weight:500;line-height:1.55;}
+.contact-page-form .consent input {width:18px;height:18px;flex:none;margin-top:3px;}
+.contact-page-form .contact-status {font-size:14px;color:#176f57;font-weight:700;margin:0;}
+.contact-location {padding:0 0 105px;}
+.contact-location h2 {font-size:clamp(30px,4vw,48px);color:#164f43;margin-bottom:10px;}
+.contact-location > .shell > p {margin:0 0 28px;}
+.contact-map {width:100%;height:430px;border:1px solid #dce9e1;border-radius:22px;display:block;}
+.contact-map-link {margin-top:20px;display:inline-flex;}
+@media (max-width:800px) {.contact-wrap{grid-template-columns:1fr;padding-top:58px;padding-bottom:66px;}.contact-location{padding-bottom:70px;}.contact-map{height:350px;}}
+@media (max-width:480px) {.contact-hero{padding:58px 0;}.contact-intro-actions{flex-direction:column;align-items:stretch;}.contact-directory article{padding:20px;}.contact-page-form{padding:22px 18px;}.contact-map{height:300px;}}
+
+/* =======================================================
+   RESTORED CLINIC GREEN-GRADIENT THEME — November 2026
+   Hero photos blend into the banner; no separate image cards.
+======================================================= */
+:root {
+  --blue: #135d50;
+  --blue2: #358d78;
+  --text: #193f36;
+  --muted: #60776f;
+  --accent-yellow: #e8c77c;
+}
+.service-banner.blended-service-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  background-color: #125b52;
+  background-image:
+    linear-gradient(90deg, rgba(10,65,55,.98) 0%, rgba(15,87,73,.94) 37%, rgba(17,101,84,.76) 64%, rgba(20,104,85,.30) 100%),
+    var(--treatment-image);
+  background-size: cover;
+  background-position: center, right 43%;
+  background-repeat: no-repeat;
+}
+.service-banner.blended-service-hero .blended-service-grid {
+  display: block;
+}
+.service-banner.blended-service-hero .service-banner-content {
+  max-width: 860px;
+  position: relative;
+  z-index: 1;
+}
+.service-banner.blended-service-hero h1 {
+  color: #fff;
+  max-width: 850px;
+  text-wrap: balance;
+}
+.service-banner.blended-service-hero p {color:#e9f5ef;max-width:750px;}
+.service-banner.blended-service-hero .kicker {color:#f1d38e;}
+/* Keep the original dark green band below the homepage hero. */
+.infobar {background:#18594e !important;background-image:none !important;}
+.infobar .info-grid strong,.infobar .info-grid small,.infobar .info-grid a {color:#fff !important;}
+.infobar .info-ico {color:#f1d08b !important;}
+/* The original green / cream / yellow color family throughout. */
+.footgrid {grid-template-columns:minmax(220px,1.5fr) minmax(130px,.7fr) minmax(230px,1.25fr) minmax(200px,1fr);gap:clamp(20px,3vw,48px);align-items:start;}
+footer,footer p,footer .footgrid p,footer .foot-bottom {color:#d9eadf !important;}
+footer .footgrid h4 {color:#fff !important;}
+footer .footgrid a:not(.brand) {color:#e1f0e5 !important;line-height:1.5;transition:color .2s ease;}
+footer .footgrid a:not(.brand):hover,footer .footgrid a:not(.brand):focus-visible {color:#f1d38e !important;}
+footer .foot-bottom {border-color:rgba(255,255,255,.2);}
+footer .footgrid > div {min-width:0;}
+/* Live Google review cards, shown only after the live integration succeeds. */
+.google-review-list {display:grid;gap:12px;margin:18px 0 20px;}
+.google-review-list[hidden],.google-rating-summary[hidden] {display:none !important;}
+.google-review-card {padding:17px;border:1px solid #dbe9e1;border-radius:15px;background:#f8fcf9;}
+.google-review-top {display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+.google-review-author {display:flex;align-items:center;gap:9px;min-width:0;}
+.google-review-author img {width:32px;height:32px;border-radius:50%;object-fit:cover;}
+.google-review-author a {color:#176a57;text-decoration:underline;text-underline-offset:2px;}
+.google-review-stars {color:#bd8840;letter-spacing:1px;font-size:15px;}
+.google-review-card p {color:#315b4e;font-size:13px;line-height:1.65;margin:10px 0;}
+.google-review-card small {color:#587b6d;display:block;margin-bottom:6px;}
+.google-review-card > a {color:#1c765f;font-size:12px;text-decoration:underline;}
+.google-rating-summary {color:#1c6655;font-weight:700;font-size:14px;}
+.google-review-attribution {font-size:11px;color:#61796e;}
+@media(max-width:980px){
+ .footgrid{grid-template-columns:repeat(2,minmax(0,1fr));}
+ .service-banner.blended-service-hero{min-height:510px;background-position:center,65% center;}
+}
+@media(max-width:620px){
+ .service-banner.blended-service-hero {min-height:0;padding:76px 0 70px;
+   background-image:linear-gradient(90deg,rgba(10,65,55,.97),rgba(15,87,73,.88)),var(--treatment-image);
+   background-position:center,65% center;}
+ .service-banner.blended-service-hero h1{font-size:clamp(35px,8.8vw,48px);overflow-wrap:anywhere;}
+ .service-banner.blended-service-hero p{font-size:16px;}
+ .footgrid{grid-template-columns:1fr;gap:22px;}
+}
+
+
+/* -------------------------------------------------------
+   FINAL COLOR TUNING — preserve current layouts and motion
+   Explicit heading scopes prevent other theme rules from
+   overriding the approved yellow/forest-green combinations.
+-------------------------------------------------------- */
+:root {
+  --clinic-forest: #193f36;
+  --clinic-mint: #328778;
+  --clinic-gold: #e8c77c;
+}
+/* Keep these two highlighted phrases entirely yellow. */
+#about h2 em.heading-gold,
+#treatments h2 em.heading-gold {
+  color: var(--clinic-gold) !important;
+  font-style: normal;
+}
+/* These complete headings should read in one uniform forest green. */
+#aligners .section-head h2:has(> em.heading-uniform),
+#why h2:has(> em.heading-uniform),
+#aligners h2 em.heading-uniform,
+#why h2 em.heading-uniform {
+  color: var(--clinic-forest) !important;
+  font-style: normal;
+}
+/* Consistent brand accents across cards, lists, small labels and links. */
+.treatment-card .card-body span,
+.treatment-card .card-body a,
+.option .num,
+.step b,
+.tour-grid b,
+.why-list b {
+  color: #287d6d !important;
+}
+.option .fine, .option-grid .fine {color:#60776f !important;}
+.step {border-top-color:#8bcdbb !important;}
+/* Compact headings without clipping or horizontal overflow. */
+.section-head h2, #about h2, #why h2 {
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+@media(max-width:620px){
+ .section-head h2,#about h2,#why h2 {
+    font-size:clamp(31px,8.3vw,43px);
+    overflow-wrap:anywhere;
+ }
+}
+
+
+/* ==============================================================
+   FINAL THEME RESTORATION — all pages
+   Unified forest green gradient and warm gold visual hierarchy.
+   These scoped rules supersede earlier pale hero variations.
+============================================================== */
+:root {
+  --brand-forest: #124f43;
+  --brand-deep: #103f35;
+  --brand-teal: #267b69;
+  --brand-mint: #8bcdbb;
+  --brand-gold: #e8c77c;
+  --brand-cream: #f8f3e6;
+}
+
+/* Restore the rich green hero on ABOUT and CONTACT, keeping gold highlights. */
+.about-inner .about-intro,
+.contact-inner .contact-hero {
+  position: relative;
+  isolation: isolate;
+  background: linear-gradient(112deg, #0d493e 0%, #186453 52%, #328a74 100%) !important;
+  color: #fff;
+}
+.about-inner .about-intro::before,
+.contact-inner .contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 84% 18%, rgba(232,199,124,.15), transparent 52%);
+  pointer-events: none;
+  z-index: -1;
+}
+.about-inner .about-intro .kicker,
+.contact-inner .contact-hero .kicker {
+  color: var(--brand-gold) !important;
+}
+.about-inner .about-intro h1,
+.contact-inner .contact-hero h1 {
+  color: #fff !important;
+}
+.about-inner .about-intro h1 em,
+.contact-inner .contact-hero h1 em {
+  color: var(--brand-gold) !important;
+  font-style: normal;
+}
+.about-inner .about-intro p,
+.contact-inner .contact-hero p {
+  color: #e7f5ee !important;
+}
+/* The portrait has its own framed surface, legible against a green background. */
+.about-inner .about-intro-photo {
+  border: 1px solid rgba(255,255,255,.23);
+  box-shadow: 0 22px 65px rgba(5,36,30,.23);
+}
+/* Contact's secondary hero action must stay visible against green. */
+.contact-inner .contact-hero .ghost-dark {
+  color: #fff !important;
+  background: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.7) !important;
+}
+.contact-inner .contact-hero .ghost-dark:hover {
+  background: rgba(255,255,255,.16) !important;
+}
+
+/* Brand-color alignment on all internal service heroes. */
+.service-page .service-banner,
+.service-page .service-banner.blended-service-hero {
+  background-color: var(--brand-deep);
+}
+.service-page .service-banner.blended-service-hero {
+  background-image: linear-gradient(90deg,
+      rgba(10,65,55,.98) 0%,
+      rgba(15,87,73,.94) 36%,
+      rgba(17,101,84,.78) 64%,
+      rgba(20,104,85,.32) 100%), var(--treatment-image);
+}
+/* Clear readable heading color on light surfaces. */
+.about-inner :is(.about-story-layout,.about-value-grid,.founder-feature,.team-profile-grid) h2,
+.contact-inner .contact-wrap h2,
+.contact-inner .contact-location h2 {
+  color: var(--brand-deep);
+}
+/* Preserve separately requested GOLD phrase emphasis. */
+#about h2 em.heading-gold,
+#treatments h2 em.heading-gold {color:var(--brand-gold) !important;}
+/* Other highlighted text belongs to the logo-green family. */
+.about-inner h2 em:not(.heading-gold),
+.contact-inner h2 em:not(.heading-gold) {
+  color: var(--brand-teal);
+}
+/* No remaining blue microcopy accents in the treatment and process cards. */
+:is(.treatment-card,.option,.step,.process-card,.service-article) :is(.num,.card-label,a),
+:is(.card-body,.step,.tour-grid) > span {
+  accent-color: var(--brand-teal);
+}
+/* Footer contrast: no gray-blue small print. */
+footer, footer p, footer .footgrid p, footer .foot-bottom {color:#e1f2e9 !important;}
+footer .footgrid h4 {color:#fff !important;}
+footer .footgrid a:not(.brand) {color:#e3f5eb !important;}
+footer .footgrid a:not(.brand):hover {color:var(--brand-gold) !important;}
+
+@media (max-width: 800px) {
+  .about-inner .about-intro,
+  .contact-inner .contact-hero {padding-top:70px;padding-bottom:72px;}
+  .about-inner .about-intro-layout {gap:32px;}
+}
+@media (max-width: 620px) {
+  .about-inner .about-intro,
+  .contact-inner .contact-hero {padding-top:52px;padding-bottom:60px;}
+  .about-inner .about-intro h1,
+  .contact-inner .contact-hero h1 {font-size:clamp(36px,9.5vw,54px);overflow-wrap:anywhere;}
+  .about-inner .about-intro-photo {max-width:min(100%,340px);}
+  .contact-inner .contact-intro-actions .button {width:100%;}
+  .service-page .service-banner.blended-service-hero {
+    background-image:linear-gradient(90deg,rgba(10,65,55,.97),rgba(15,87,73,.90)), var(--treatment-image);
+  }
+}
+
+
+/* =============================================================
+   ABOUT HERO ALIGNMENT FIX — 2026-11-03
+   Scoped to the About introduction; all other pages unchanged.
+   ============================================================= */
+.about-inner .about-intro {
+  padding: 84px 0 92px;
+}
+
+.about-inner .about-intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  gap: clamp(36px, 5vw, 84px);
+  align-items: center;
+  min-height: 550px;
+}
+
+.about-inner .about-intro-layout > :first-child {
+  min-width: 0;
+  max-width: 710px;
+  align-self: center;
+}
+
+.about-inner .about-intro h1 {
+  font-size: clamp(40px, 4.75vw, 72px);
+  line-height: 1.10;
+}
+
+.about-inner .about-intro-photo {
+  width: min(100%, 365px);
+  max-width: 365px;
+  aspect-ratio: 4 / 5;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  padding: 14px 14px 0;
+}
+
+.about-inner .about-intro-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+@media (max-width: 980px) {
+  .about-inner .about-intro {
+    padding: 64px 0 72px;
+  }
+  .about-inner .about-intro-layout {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 38px;
+  }
+  .about-inner .about-intro-layout > :first-child {
+    max-width: 680px;
+  }
+  .about-inner .about-intro-photo {
+    width: min(100%, 365px);
+  }
+}
+
+@media (max-width: 600px) {
+  .about-inner .about-intro {
+    padding: 48px 0 60px;
+  }
+  .about-inner .about-intro-layout {
+    gap: 28px;
+  }
+  .about-inner .about-intro h1 {
+    font-size: clamp(36px, 9.5vw, 52px);
+  }
+  .about-inner .about-intro-photo {
+    width: min(100%, 320px);
+  }
+}
+
+/* Unified heading colors — keep all words in each heading the same color.
+   Inherit from the parent heading: forest-green on light sections,
+   white on dark gradient sections. This must remain last to override
+   earlier colored emphasis declarations. */
+h1 em, h2 em, h3 em,
+h1 em.heading-gold, h2 em.heading-gold, h3 em.heading-gold,
+h1 em.heading-uniform, h2 em.heading-uniform, h3 em.heading-uniform,
+h1 > span, h2 > span, h3 > span {
+  color: inherit !important;
+}
+
+/* Fix low contrast of the small guidance label on the green comparison panel.
+   This overrides the site-wide green kicker color without altering other labels. */
+.comparison .kicker {
+  color: #F3D58A !important;
+  opacity: 1 !important;
+  text-shadow: none;
+}
+.comparison h3 { color: #FFFFFF !important; }
+.comparison p { color: #F0F9F4 !important; }
+
+
+/* FINAL REPAIR — About / Contact content-balanced heroes and primary CTAs.
+   These are the real body classes and the actual HTML layout selectors. */
+body.about-inner .about-intro {
+  display: block;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 68px 0 !important;
+}
+body.about-inner .about-intro-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  align-items: center !important;
+  gap: clamp(30px, 5vw, 76px);
+  min-height: 0 !important;
+  height: auto !important;
+}
+body.about-inner .about-intro-layout > .reveal:first-child {
+  align-self: center !important;
+  min-width: 0;
+}
+body.about-inner .about-intro-photo {
+  align-self: center !important;
+  justify-self: center;
+  width: min(100%, 380px);
+  max-width: 380px;
+  aspect-ratio: 4 / 5;
+  padding: 12px 12px 0;
+  margin: 0;
+}
+body.about-inner .about-intro-photo img {
+  width: 100%; height: 100%; object-fit: contain;
+  object-position: center bottom;
+}
+body.contact-inner .contact-hero {
+  display: block;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 78px 0 !important;
+}
+body.contact-inner .contact-hero > .shell {
+  margin-inline: auto;
+  margin-block: 0;
+}
+/* Force the requested logo-inspired gradient over older solid-mint rules. */
+:root { --booking-mint: #83ccb9; --booking-gold: #e9c97d; }
+.button.primary, a.button.primary, button.primary,
+.button.dark, .lead-submit, button.lead-submit,
+.contact-page-form button[type="submit"] {
+  background-color: var(--booking-mint) !important;
+  background-image: linear-gradient(105deg, var(--booking-mint) 0%, var(--booking-gold) 100%) !important;
+  color: #173d34 !important;
+  border-color: transparent !important;
+}
+.button.primary:hover, a.button.primary:hover, button.primary:hover,
+.button.dark:hover, .lead-submit:hover,
+.contact-page-form button[type="submit"]:hover {
+  background-image: linear-gradient(105deg, #73c2ac 0%, #dcba6b 100%) !important;
+  color: #173d34 !important;
+}
+@media (max-width: 980px) {
+  body.about-inner .about-intro-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+  body.about-inner .about-intro-photo { width: min(100%, 350px); }
+}
+@media (max-width: 600px) {
+  body.about-inner .about-intro,
+  body.contact-inner .contact-hero { padding: 46px 0 56px !important; }
+  body.about-inner .about-intro-photo { width: min(100%, 310px); }
+  body.about-inner .about-intro h1,
+  body.contact-inner .contact-hero h1 {
+    font-size: clamp(36px, 9.3vw, 52px); overflow-wrap: normal;
+  }
+}
+
+/* Reserve actual header space so the hero cannot slide behind the logo/navbar. */
+body.about-inner > main.about-page,
+body.contact-inner > main.contact-page { padding-top: 105px; }
+@media (max-width:800px) {
+  body.about-inner > main.about-page,
+  body.contact-inner > main.contact-page { padding-top: 82px; }
+}
+
+
+/* ABOUT PORTRAIT: one clean photo surface (the source image has a white background).
+   Prevents the previous mint-to-cream double frame and nested white rectangle. */
+body.about-inner .about-intro-photo {
+  display: block !important;
+  width: min(100%, 380px) !important;
+  max-width: 380px !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: #fff !important;
+  border: 0 !important;
+  border-radius: 26px !important;
+  overflow: hidden !important;
+  box-shadow: 0 18px 48px rgba(5, 35, 30, .18) !important;
+  isolation: auto !important;
+}
+body.about-inner .about-intro-photo::before,
+body.about-inner .about-intro-photo::after { content: none !important; display: none !important; }
+body.about-inner .about-intro-photo img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: inherit !important;
+  filter: none !important;
+}
+@media (max-width: 980px) {
+  body.about-inner .about-intro-photo { width: min(100%, 340px) !important; }
+}
+@media (max-width: 600px) {
+  body.about-inner .about-intro-photo { width: min(100%, 310px) !important; }
 }

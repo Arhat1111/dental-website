@@ -50,3 +50,45 @@ The enquiry popup automatically appears once per browser tab/session, on the fir
 
 ## Popup motion update
 The enquiry popup now opens 1 second after the first page load in each browser tab. It fades/scales in and out over 320 ms. Change `OPEN_DELAY_MS` and `TRANSITION_MS` in `lead.js` to adjust timing. `prefers-reduced-motion` is respected.
+
+## Latest visual fix
+The full-width information strip now uses consistent dark green, white/ivory text, and muted gold icons. Previous pale-blue text colors were removed for this strip. No layout or functionality was changed.
+
+
+## November 3 visual update
+Primary appointment buttons now use solid mint-green (#8BCDBB), with a slightly darker green hover state (#77BEAA); the former two-color gradient has been removed.
+
+## Contact information band color correction
+The homepage information bar is now solid mint `#8BCDBB`, matching the appointment button. Its dark-green text, icons, and divider lines maintain readable contrast. The late `!important` CSS override that previously restored the dark green has been replaced.
+
+## Contact page update
+- Added `contact.html` with contact details, enquiry form, map and WhatsApp integration.
+- Navbar Contact links now open the dedicated page on all pages.
+- Restored the homepage three-column contact information band to forest green (#18594E), with white text and yellow icons.
+
+
+## Google reviews setup (live Google Places)
+
+Live Google reviews require a Google Maps Platform API key and a Google Cloud billing-enabled project. Google currently supplies up to five reviews for a place via the official Places API. Reviews are not hardcoded or fabricated.
+
+1. Enable **Maps JavaScript API** and **Places API (New)** in Google Cloud.
+2. Create a browser API key restricted by HTTP referrer to the deployed website domain, and restrict allowed APIs.
+3. Add the restricted key to `reviews-config.js` (between the quotes).
+4. Deploy and open the homepage on your hosted domain. The website will query Google and show the available reviews with reviewer attribution.
+5. If the key is missing/invalid, the website retains the existing Google Reviews link without showing invented quotes.
+
+Review content is fetched on visitor page-load and is not stored or cached. Google may change which reviews appear. Verify the Google Cloud billing settings and current Google attribution requirements.
+
+
+## 3 November — heading and accent color correction
+- Entire “Commitment to Care.” and “your needs.” phrases are gold (#E8C77C).
+- Entire orthodontic treatment-help, FAQs, and patient-focused care headings are forest green (#193F36).
+- Blue-looking treatment labels, step markers, and links have been explicitly set to matching green.
+- Mobile heading sizes are bounded to minimize overflow.
+- No layout, content, navigation, booking, or slideshow scripts were intentionally changed.
+
+
+## Brand palette restoration (November 3)
+About and Contact page heroes now use the same green-gradient visual direction as the homepage/service pages. Gold emphasis and white text are restored. The stylesheet URL is versioned to prevent browsers displaying a previously cached palette.
+
+Replace the entire deployed directory with these files; do not mix files from earlier releases.
