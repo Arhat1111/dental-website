@@ -1364,3 +1364,41 @@ footer a:hover { color:#e8c783; }
 }
 /* Visible, unobtrusive WhatsApp confirmation */
 .form-status.whatsapp-ready { color: #147559; font-weight: 700; line-height: 1.5; }
+
+
+/* =====================================================
+   ENQUIRY POPUP — SMOOTH OPEN / CLOSE TRANSITIONS
+   The popup is initially hidden by its [hidden] attribute.
+   When shown, .is-visible fades in the overlay and lifts the dialog.
+===================================================== */
+.lead-overlay:not([hidden]) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 320ms ease, visibility 320ms ease;
+}
+
+.lead-overlay.is-visible:not([hidden]) {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.lead-overlay .lead-dialog {
+  opacity: 0;
+  transform: translateY(18px) scale(0.97);
+  transition: transform 320ms cubic-bezier(.2,.8,.2,1), opacity 320ms ease;
+  will-change: transform, opacity;
+}
+
+.lead-overlay.is-visible .lead-dialog {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lead-overlay:not([hidden]),
+  .lead-overlay .lead-dialog {
+    transition-duration: 0ms;
+  }
+}

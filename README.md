@@ -43,3 +43,10 @@ All booking forms now open WhatsApp with the visitor's name, contact number, ser
 
 ## Founder portrait
 The About-page founder image uses `assets/images/dr-pooja-portrait-crop.png` with an updated proportional portrait frame. The original image remains in assets.
+
+
+## Enquiry popup
+The enquiry popup automatically appears once per browser tab/session, on the first page visited. Visitors close it using the × button, backdrop, or Escape. The floating Enquire Now opener has been removed. Reloading or navigating to another page in the same tab will not reopen it; opening the site in a new tab starts a new session. The popup continues to prepare an enquiry in WhatsApp, where the visitor must press Send.
+
+## Popup motion update
+The enquiry popup now opens 1 second after the first page load in each browser tab. It fades/scales in and out over 320 ms. Change `OPEN_DELAY_MS` and `TRANSITION_MS` in `lead.js` to adjust timing. `prefers-reduced-motion` is respected.
