@@ -1954,3 +1954,9 @@ body.about-inner .about-intro-photo img {
 @media (max-width: 600px) {
   body.about-inner .about-intro-photo { width: min(100%, 310px) !important; }
 }
+
+/* Professional, monochrome clinic icons across mobile and desktop */
+.infobar .info-ico{display:inline-flex!important;align-items:center;justify-content:center;flex:0 0 auto;}
+.infobar .info-ico svg{display:block;width:1em;height:1em;stroke:currentColor;}
+.lead-contact a{display:inline-flex;align-items:center;gap:8px;}
+.lead-contact a svg{width:19px;height:19px;flex:none;stroke:currentColor;}
