@@ -1960,3 +1960,24 @@ body.about-inner .about-intro-photo img {
 .infobar .info-ico svg{display:block;width:1em;height:1em;stroke:currentColor;}
 .lead-contact a{display:inline-flex;align-items:center;gap:8px;}
 .lead-contact a svg{width:19px;height:19px;flex:none;stroke:currentColor;}
+
+
+/* Requested warm-yellow headings – keep all other text/colors untouched.
+   Brand yellow matches the approved clinic palette. */
+:root { --treatment-heading-yellow: #e8c77c; }
+/* Six dynamically rendered home-page treatment titles */
+#treatmentCards .treatment-card .card-body h3 {
+  color: var(--treatment-heading-yellow) !important;
+  text-shadow: 0 1px 0 rgba(44,62,47,.14);
+}
+/* Only the second sentence of the aligner introduction */
+#aligners h2.aligner-intro-title em {
+  color: var(--treatment-heading-yellow) !important;
+  font-style: normal;
+}
+/* Entire Your Smile Correction Journey heading in one yellow */
+#aligners h2.smile-journey-title,
+#aligners h2.smile-journey-title em {
+  color: var(--treatment-heading-yellow) !important;
+  font-style: normal;
+}
