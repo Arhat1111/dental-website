@@ -1,69 +1,103 @@
-/** Display real, current Google Place reviews when a valid Places API key is configured. */
+/* Real Google reviews. No fabricated sample data and no API key in browser. */
 (() => {
-  const key = window.IMAGE_DENTAL_GOOGLE_MAPS_KEY;
-  const container = document.getElementById('googleReviewsLive');
+  'use strict';
+  const panel = document.querySelector('.reviews-panel');
+  const list = document.getElementById('googleReviewsLive');
   const summary = document.getElementById('googleRatingSummary');
-  if (!container || !key || key.trim().length < 12) return;
+  if (!panel || !list || !summary) return;
 
-  function textElement(tag, content, className) {
+  const endpoint = String(window.IMAGE_DENTAL_REVIEWS_ENDPOINT || '').trim();
+  const status = document.getElementById('googleReviewsStatus');
+  const sourceLink = panel.querySelector('a[href*="google.com"]');
+
+  function setStatus(message) {
+    if (status) { status.textContent = message; status.hidden = !message; }
+  }
+  function safeHttps(value) {
+    try { const url = new URL(value); return url.protocol === 'https:' ? url.href : ''; }
+    catch { return ''; }
+  }
+  function node(tag, cls, value) {
     const el = document.createElement(tag);
-    if (className) el.className = className;
-    el.textContent = content;
+    if (cls) el.className = cls;
+    if (value !== undefined) el.textContent = String(value);
     return el;
   }
-  function safeLink(url) {
-    try {const u = new URL(url); return u.protocol === 'https:' ? u.href : null;}
-    catch {return null;}
+  function renderStars(rating) {
+    const value = Number.isFinite(Number(rating)) ? Math.max(0,Math.min(5,Number(rating))) : 0;
+    const wrap = node('span','review-stars','');
+    wrap.textContent = `${'★'.repeat(Math.round(value))}${'☆'.repeat(5-Math.round(value))}`;
+    wrap.setAttribute('aria-label',`${value} out of 5 stars`);
+    return wrap;
   }
-  function displayReview(review) {
-    const card = textElement('article','', 'google-review-card');
-    const top = textElement('div','', 'google-review-top');
-    const author = textElement('div','', 'google-review-author');
-    const attr = review.authorAttribution || {};
-    const authorURL = safeLink(attr.uri);
-    const person = authorURL ? document.createElement('a') : document.createElement('span');
-    person.textContent = attr.displayName || 'Google reviewer';
-    if (authorURL) {person.href=authorURL; person.target='_blank'; person.rel='noopener noreferrer';}
-    if (attr.photoURI && safeLink(attr.photoURI)) {
-      const avatar = document.createElement('img');avatar.src=attr.photoURI;avatar.alt='';avatar.loading='lazy';
-      author.append(avatar);
+  function renderReview(review) {
+    const card = node('article','google-review-card');
+    const head = node('div','google-review-top');
+    const author = node('div','google-review-author');
+    const imageUrl = safeHttps(review.authorPhoto);
+    if (imageUrl) {
+      const photo = node('img'); photo.src=imageUrl; photo.alt=''; photo.loading='lazy';
+      photo.referrerPolicy='no-referrer'; author.append(photo);
     }
-    author.append(person);
-    top.append(author,textElement('span','★'.repeat(Math.max(0,Math.min(5,Math.round(review.rating || 0)))),'google-review-stars'));
-    card.append(top);
-    const reviewText = typeof review.text==='string' ? review.text : (review.text?.text || '');
-    if (reviewText) card.append(textElement('p',reviewText));
-    if (review.relativePublishTimeDescription) card.append(textElement('small',review.relativePublishTimeDescription));
-    const source = safeLink(review.googleMapsURI);
-    if (source) {
-      const link = textElement('a','View original review on Google Maps');
-      link.href=source;link.target='_blank';link.rel='noopener noreferrer';card.append(link);
+    const authorName = node('span','review-author-name',review.author || 'Google reviewer');
+    const authorUrl = safeHttps(review.authorUrl);
+    if (authorUrl) {
+      const authorAnchor=node('a','review-author-link',review.author || 'Google reviewer');
+      authorAnchor.href=authorUrl; authorAnchor.target='_blank'; authorAnchor.rel='noopener noreferrer';
+      author.append(authorAnchor);
+    } else author.append(authorName);
+    head.append(author,renderStars(review.rating));card.append(head);
+    if (review.text) card.append(node('p','review-quote',review.text));
+    const foot=node('div','review-foot');
+    if (review.date) {
+      const date=node('time','review-date',new Date(review.date).toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'}));
+      date.dateTime=review.date;foot.append(date);
     }
+    const reviewUrl=safeHttps(review.url);
+    if(reviewUrl){
+      const link=node('a','review-original','View on Google Maps ↗');
+      link.href=reviewUrl;link.target='_blank';link.rel='noopener noreferrer';foot.append(link);
+    }
+    card.append(foot);
     return card;
   }
-  async function loadReviews() {
-    const {Place} = await google.maps.importLibrary('places');
-    const {places} = await Place.searchByText({
-      textQuery:'Image Dental Care & Implant Centre 53 54 Aakash Business Centre Piplod Surat Gujarat',
-      fields:['id','displayName','formattedAddress'],region:'in',maxResultCount:5
-    });
-    const place = places.find(p=>/image dental care/i.test(p.displayName||'') && /surat|piplod/i.test(p.formattedAddress||''));
-    if (!place) return;
-    await place.fetchFields({fields:['rating','userRatingCount','reviews','googleMapsURI']});
-    if (!Array.isArray(place.reviews) || place.reviews.length===0) return;
-    if (Number.isFinite(place.rating)) {
-      summary.textContent = `${place.rating.toFixed(1)} / 5 on Google Maps${place.userRatingCount ? ` · ${place.userRatingCount} ratings` : ''}`;
-      summary.hidden=false;
+  async function load() {
+    if (!endpoint) {
+      setStatus('Google reviews are not connected yet. View the clinic’s latest reviews on Google Maps.');
+      return;
     }
-    container.replaceChildren(...place.reviews.slice(0,5).map(displayReview));
-    container.append(textElement('p','Google Maps reviews · selected by relevance · up to 5 available through Google Places API','google-review-attribution'));
-    if (place.attributions) for (const attribution of place.attributions) {
-      container.append(textElement('small',typeof attribution==='string'?attribution:String(attribution),'google-review-attribution'));
+    const url=safeHttps(endpoint);
+    // localhost testing can use http://localhost:8787 only
+    const local=/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/?.*$/.test(endpoint);
+    if (!url && !local) {setStatus('Reviews configuration needs a valid HTTPS endpoint.');return;}
+    setStatus('Loading Google reviews…');
+    try {
+      const controller=new AbortController();
+      const timer=setTimeout(()=>controller.abort(),12000);
+      let response;
+      try {response=await fetch(url || endpoint,{headers:{'Accept':'application/json'},signal:controller.signal,cache:'no-store'});}
+      finally {clearTimeout(timer);}
+      if (!response.ok) throw new Error(`Reviews service unavailable (${response.status})`);
+      const data=await response.json();
+      if (!Array.isArray(data.reviews)) throw new Error('Reviews service returned invalid data');
+      const rating=Number(data.rating);
+      const count=Number(data.totalRatings);
+      if(Number.isFinite(rating) && rating>=0 && rating<=5) {
+        summary.textContent=`${rating.toFixed(1)} / 5 on Google Maps${Number.isFinite(count) ? ` · ${count.toLocaleString('en-IN')} ratings` : ''}`;
+        summary.hidden=false;
+      }
+      if (data.reviews.length) {
+        list.replaceChildren(...data.reviews.slice(0,5).map(renderReview));
+        list.append(node('p','google-review-attribution','Reviews provided by Google Maps · A selection of up to five reviews'));
+        list.hidden=false;
+        setStatus('');
+      } else setStatus('No review excerpts are available from Google right now.');
+      const placeLink=safeHttps(data.googleMapsUrl);
+      if(placeLink && sourceLink) sourceLink.href=placeLink;
+    } catch(e) {
+      console.warn('Google reviews unavailable:',e);
+      setStatus('Google reviews are temporarily unavailable. Read current reviews on Google Maps.');
     }
-    container.hidden = false;
   }
-  window.__imageDentalMapsLoaded = () => {loadReviews().catch(()=>{});};
-  const script = document.createElement('script');
-  script.src='https://maps.googleapis.com/maps/api/js?key='+encodeURIComponent(key)+'&loading=async&v=weekly&libraries=places&callback=__imageDentalMapsLoaded';
-  script.async=true;script.onerror=()=>{};document.head.append(script);
+  load();
 })();

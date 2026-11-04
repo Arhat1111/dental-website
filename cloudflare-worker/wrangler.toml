@@ -1,0 +1,8 @@
+name = "image-dental-google-reviews"
+main = "index.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_ORIGINS = "https://imagedentalcaree.com,https://www.imagedentalcaree.com"
+# GOOGLE_PLACE_ID = "YOUR_CONFIRMED_GOOGLE_PLACE_ID"
+# Add GOOGLE_PLACES_API_KEY as a secret using `npx wrangler secret put GOOGLE_PLACES_API_KEY`

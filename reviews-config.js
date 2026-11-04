@@ -1,6 +1,6 @@
 /**
- * Google Maps JavaScript API key, restricted to your website domains.
- * Enable "Places API (New)" in Google Cloud.
- * Browser API keys are public by design; restrict HTTP referrers and allowed APIs.
+ * Live Google reviews endpoint.
+ * Replace the URL below with your deployed Cloudflare Worker URL.
+ * Do not put a Google API key in this website's JavaScript.
  */
-window.IMAGE_DENTAL_GOOGLE_MAPS_KEY = '';
+window.IMAGE_DENTAL_REVIEWS_ENDPOINT = '';

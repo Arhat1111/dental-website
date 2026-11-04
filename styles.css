@@ -1981,3 +1981,20 @@ body.about-inner .about-intro-photo img {
   color: var(--treatment-heading-yellow) !important;
   font-style: normal;
 }
+
+/* Google review cards: populated only with genuine Google Places API data. */
+.google-review-status{color:#516d65;margin:14px 0 24px;line-height:1.65;font-size:15px;}
+.google-review-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px;margin:24px 0;}
+.google-review-list[hidden],.google-review-status[hidden],.google-rating-summary[hidden]{display:none!important;}
+.google-rating-summary{font-weight:700;color:#194e42;font-size:17px;}
+.google-review-card{background:#f6faf7;border:1px solid #dcebe2;border-radius:16px;padding:20px;min-width:0;}
+.google-review-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.google-review-author{display:flex;align-items:center;gap:10px;min-width:0;font-weight:700;color:#194e42;}
+.google-review-author img{width:34px;height:34px;object-fit:cover;border-radius:50%;}
+.google-review-author a,.review-original{color:#187965;overflow-wrap:anywhere;}
+.review-stars{color:#d0a647;letter-spacing:.04em;white-space:nowrap;font-size:17px;}
+.google-review-card .review-quote{color:#34574d;font-size:14px;line-height:1.7;margin:14px 0;}
+.review-foot{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:12px;}
+.review-date{color:#607b70;}
+.google-review-attribution{grid-column:1/-1;color:#62786e;font-size:12px;}
+@media(max-width:680px){.google-review-list{grid-template-columns:1fr;} .google-review-card{padding:16px;}}
